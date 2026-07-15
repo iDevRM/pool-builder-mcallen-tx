@@ -1,0 +1,320 @@
+/* McAllen Pool Builders — shared stylesheet */
+
+:root {
+  --navy: #0b3954;
+  --navy-dark: #082738;
+  --aqua: #0891b2;
+  --aqua-light: #22d3ee;
+  --sand: #f7f3ec;
+  --sand-dark: #ede4d3;
+  --ink: #1a2530;
+  --gray: #55606b;
+  --white: #ffffff;
+  --orange: #ea580c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  background: var(--white);
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--aqua); }
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Nav ---------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--navy);
+  border-bottom: 3px solid var(--aqua);
+}
+
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav-logo {
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+
+.nav-logo span { color: var(--aqua-light); }
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #d7e6ee;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover { color: var(--aqua-light); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--white) !important;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.92rem;
+}
+
+.nav-cta:hover { background: #c2410c; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--navy-dark);
+  color: var(--white);
+  padding: 60px 0 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(34, 211, 238, 0.15);
+  border: 1px solid var(--aqua);
+  color: var(--aqua-light);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.hero p.lead {
+  font-size: 1.1rem;
+  color: #c9dce5;
+  margin-bottom: 26px;
+  max-width: 46ch;
+}
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.btn-primary { background: var(--orange); color: var(--white); }
+.btn-primary:hover { background: #c2410c; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-secondary:hover { border-color: var(--aqua-light); color: var(--aqua-light); }
+
+.hero-image img {
+  border-radius: 10px;
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+/* ---------- Sections ---------- */
+section { padding: 64px 0; }
+.section-white { background: var(--white); }
+.section-sand { background: var(--sand); }
+
+h2 {
+  font-size: 1.9rem;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
+
+p { margin-bottom: 14px; color: var(--gray); max-width: 72ch; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.two-col img { border-radius: 10px; height: 320px; width: 100%; object-fit: cover; }
+
+/* ---------- Cards ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--sand-dark);
+  border-radius: 10px;
+  padding: 26px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.card h3 { margin-bottom: 8px; }
+
+.card .price {
+  display: inline-block;
+  background: var(--sand);
+  color: var(--navy);
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+/* ---------- Trigger list ---------- */
+.trigger-list { list-style: none; margin-top: 20px; }
+.trigger-list li {
+  padding: 14px 0 14px 32px;
+  position: relative;
+  border-bottom: 1px solid var(--sand-dark);
+  color: var(--gray);
+}
+.trigger-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  color: var(--aqua);
+  font-weight: 700;
+}
+
+/* ---------- FAQ flashcards ---------- */
+.faq-grid { display: grid; gap: 16px; margin-top: 24px; }
+
+.faq-card {
+  background: var(--white);
+  border: 1px solid var(--sand-dark);
+  border-left: 4px solid var(--aqua);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+
+.faq-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.faq-card p { margin-bottom: 0; }
+
+/* ---------- CTA banner ---------- */
+.cta-banner {
+  background: var(--orange);
+  color: var(--white);
+  text-align: center;
+  padding: 48px 0;
+}
+
+.cta-banner h2 { color: var(--white); margin-bottom: 12px; }
+.cta-banner p { color: #ffe9dc; margin: 0 auto 22px; }
+.cta-banner .btn-secondary { border-color: rgba(255,255,255,0.6); }
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--navy-dark);
+  color: #b9c9d2;
+  padding: 46px 0 26px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 30px;
+}
+
+footer h4 { color: var(--white); margin-bottom: 12px; font-size: 1rem; }
+footer p { color: #9db1bc; font-size: 0.92rem; }
+footer a { color: #9db1bc; text-decoration: none; font-size: 0.92rem; }
+footer a:hover { color: var(--aqua-light); }
+footer ul { list-style: none; }
+footer li { margin-bottom: 8px; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #7f93a0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- Forms ---------- */
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--navy); }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cfd8de;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.form-group textarea { min-height: 110px; resize: vertical; }
+
+/* ---------- Utility ---------- */
+.section-header { max-width: 62ch; margin-bottom: 8px; }
+.eyebrow {
+  color: var(--aqua);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .hero-grid, .two-col { grid-template-columns: 1fr; }
+  .hero-image { order: -1; }
+  .card-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero h1 { font-size: 2rem; }
+}
