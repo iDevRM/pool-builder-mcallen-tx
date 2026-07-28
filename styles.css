@@ -67,6 +67,8 @@ a { color: var(--aqua); }
   list-style: none;
 }
 
+.nav-links li { position: relative; }
+
 .nav-links a {
   color: #d7e6ee;
   text-decoration: none;
@@ -75,6 +77,65 @@ a { color: var(--aqua); }
 }
 
 .nav-links a:hover { color: var(--aqua-light); }
+
+/* ---------- Services dropdown ---------- */
+.has-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.has-dropdown > a::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+}
+
+/* Transparent hit-area bridge: padding-top (not margin-top) keeps the gap
+   between the nav bar and the menu inside the element's own hoverable box,
+   so the pointer can travel down into the menu without dropping :hover. */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  padding-top: 14px;
+  min-width: 270px;
+  z-index: 200;
+}
+
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu-list {
+  list-style: none;
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 3px solid var(--aqua);
+  padding: 8px 0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.dropdown-menu-list li + li { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+
+.dropdown-menu-list a {
+  display: block;
+  padding: 11px 20px;
+  color: #d7e6ee;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dropdown-menu-list a:hover {
+  background: #14496b;
+  color: #ffffff;
+}
 
 .nav-cta {
   background: var(--orange);
@@ -261,7 +322,7 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1.1fr 0.8fr 1.1fr;
   gap: 32px;
   margin-bottom: 30px;
 }
@@ -310,11 +371,33 @@ footer li { margin-bottom: 8px; }
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1040px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 860px) {
   .hero-grid, .two-col { grid-template-columns: 1fr; }
   .hero-image { order: -1; }
   .card-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
   .hero h1 { font-size: 2rem; }
+
+  /* Nav wraps onto its own row instead of disappearing. The hover dropdown is
+     pointless on touch, so it is switched off here; the footer carries a
+     direct link to every service page on small screens. */
+  .nav-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+  .nav-links a { font-size: 0.9rem; }
+  .dropdown-menu { display: none !important; }
+  .has-dropdown > a::after { display: none; }
 }
